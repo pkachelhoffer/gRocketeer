@@ -2,8 +2,8 @@ package entity
 
 import (
 	"fmt"
+	"gRocketeer/core/config"
 	"github.com/hajimehoshi/ebiten/v2"
-	"playground/core/config"
 )
 
 type System struct {

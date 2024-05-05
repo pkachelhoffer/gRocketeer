@@ -49,6 +49,22 @@ func (v Vec) Distance(b Vec) float64 {
 	return zi
 }
 
+func (v Vec) LeftFromCenter() float64 {
+	return -(v.X / 2)
+}
+
+func (v Vec) RightFromCenter() float64 {
+	return v.X / 2
+}
+
+func (v Vec) UpFromCenter() float64 {
+	return -(v.Y / 2)
+}
+
+func (v Vec) DownFromCenter() float64 {
+	return v.Y / 2
+}
+
 func Sqr(x float64) float64 {
 	return x * x
 }

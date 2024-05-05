@@ -8,3 +8,22 @@ type Entity interface {
 	Draw(target *ebiten.Image)
 	Terminate()
 }
+
+type BaseEntity struct {
+}
+
+func (b BaseEntity) Init() {
+
+}
+
+func (b BaseEntity) Update() bool {
+	return false
+}
+
+func (b BaseEntity) Draw(target *ebiten.Image) {
+
+}
+
+func (b BaseEntity) Terminate() {
+
+}

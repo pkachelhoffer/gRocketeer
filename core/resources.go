@@ -15,3 +15,12 @@ func LoadImageBytes(bs []byte) *ebiten.Image {
 
 	return img
 }
+
+func LoadShaderBytes(bs []byte) *ebiten.Shader {
+	s, err := ebiten.NewShader(bs)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return s
+}

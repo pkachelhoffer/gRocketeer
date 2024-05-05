@@ -2,9 +2,6 @@ package core
 
 import (
 	"fmt"
-	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/hajimehoshi/ebiten/v2/vector"
-	"image/color"
 )
 
 type Rectangle struct {
@@ -45,10 +42,14 @@ func (a Rectangle) CollideRect(b Rectangle) bool {
 	return true
 }
 
-func (a Rectangle) String() string {
-	return fmt.Sprintf("{min: %s, max: %s}", a.Pos, a.Bounds)
+func (a Rectangle) BottomLeft() Vec {
+	return NewVec(a.Pos.X+a.Bounds.LeftFromCenter(), a.Pos.Y+a.Bounds.DownFromCenter())
 }
 
-func DrawRect(rect Rectangle, target *ebiten.Image, col color.Color) {
-	vector.DrawFilledRect(target, float32(rect.Pos.X-(rect.Bounds.X/2.0)), float32(rect.Pos.Y-(rect.Bounds.Y/2.0)), float32(rect.Bounds.X), float32(rect.Bounds.Y), col, false)
+func (a Rectangle) BottomRight() Vec {
+	return NewVec(a.Pos.X+a.Bounds.RightFromCenter(), a.Pos.Y+a.Bounds.DownFromCenter())
+}
+
+func (a Rectangle) String() string {
+	return fmt.Sprintf("{min: %s, max: %s}", a.Pos, a.Bounds)
 }
