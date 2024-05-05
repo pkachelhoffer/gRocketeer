@@ -30,7 +30,7 @@ func (s *Ship) Init() {
 
 	fmt.Println(s.rectBody.Rect.BottomLeft(), s.rectBody.Rect.BottomRight())
 
-	verts, ind := getFin(core.NewVec(10, 5), types.ColorRed)
+	verts, ind := getFin(core.NewVec(10, 5), types.ColorGrey)
 	s.finLeft = geom.NewVerts(verts, ind, s.rectBody.Rect.BottomLeft().Add(core.NewVec(0, 3)), 0)
 	s.finRight = geom.NewVerts(geom.MirrorHorizontal(verts), ind, s.rectBody.Rect.BottomRight().Add(core.NewVec(0, 3)), 0)
 }
@@ -47,26 +47,26 @@ func getFin(bounds core.Vec, col color.Color) ([]ebiten.Vertex, []uint16) {
 		{
 			DstX:   float32(bounds.LeftFromCenter()),
 			DstY:   float32(bounds.DownFromCenter()),
-			ColorR: float32(r / 255.0),
-			ColorG: float32(g / 255.0),
-			ColorB: float32(b / 255.0),
-			ColorA: float32(a / 255.0),
+			ColorR: float32(r) / 0xffff,
+			ColorG: float32(g) / 0xffff,
+			ColorB: float32(b) / 0xffff,
+			ColorA: float32(a) / 0xffff,
 		},
 		{
-			DstX:   float32(bounds.LeftFromCenter() + 4),
+			DstX:   float32(bounds.LeftFromCenter() + bounds.X/2.5),
 			DstY:   float32(bounds.UpFromCenter()),
-			ColorR: float32(r / 255.0),
-			ColorG: float32(g / 255.0),
-			ColorB: float32(b / 255.0),
-			ColorA: float32(a / 255.0),
+			ColorR: float32(r) / 0xffff,
+			ColorG: float32(g) / 0xffff,
+			ColorB: float32(b) / 0xffff,
+			ColorA: float32(a) / 0xffff,
 		},
 		{
 			DstX:   float32(bounds.RightFromCenter()),
 			DstY:   float32(bounds.UpFromCenter()),
-			ColorR: float32(r / 255.0),
-			ColorG: float32(g / 255.0),
-			ColorB: float32(b / 255.0),
-			ColorA: float32(a / 255.0),
+			ColorR: float32(r) / 0xffff,
+			ColorG: float32(g) / 0xffff,
+			ColorB: float32(b) / 0xffff,
+			ColorA: float32(a) / 0xffff,
 		},
 	}
 
