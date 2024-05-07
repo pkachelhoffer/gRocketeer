@@ -50,6 +50,14 @@ func (a Rectangle) BottomRight() Vec {
 	return NewVec(a.Pos.X+a.Bounds.RightFromCenter(), a.Pos.Y+a.Bounds.DownFromCenter())
 }
 
+func (a Rectangle) Top() Vec {
+	return NewVec(a.Pos.X, a.Pos.Y-(a.Bounds.Y/2.0))
+}
+
+func (a Rectangle) Bottom() Vec {
+	return NewVec(a.Pos.X, a.Pos.Y+(a.Bounds.Y/2.0))
+}
+
 func (a Rectangle) String() string {
 	return fmt.Sprintf("{min: %s, max: %s}", a.Pos, a.Bounds)
 }

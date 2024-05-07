@@ -1,4 +1,4 @@
-package game
+package resources
 
 import (
 	"gRocketeer/core"

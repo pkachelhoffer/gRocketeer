@@ -5,6 +5,7 @@ import (
 	"gRocketeer/core/config"
 	"gRocketeer/core/entity"
 	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/jakecoffman/cp"
 	"log"
 )
 
@@ -20,11 +21,18 @@ var (
 
 type Game struct {
 	System *entity.System
+	Space  *cp.Space
 	Con    *Controller
 }
 
+func (g *Game) GetSpace() *cp.Space {
+	return g.Space
+}
+
 func (g *Game) Update() error {
+	g.Space.Step(1.0 / float64(ebiten.TPS()))
 	g.System.Update()
+	g.Con.Update()
 	return nil
 }
 
@@ -36,7 +44,7 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 	return ResWidth, ResHeight
 }
 
-func (g *Game) Sys() *entity.System {
+func (g *Game) GetSys() *entity.System {
 	return g.System
 }
 
@@ -53,7 +61,11 @@ func Run() {
 
 	G = &Game{
 		System: entity.NewSystem(),
+		Space:  cp.NewSpace(),
 	}
+
+	G.Space.SetGravity(cp.Vector{X: 0, Y: 5})
+	G.Space.SleepTimeThreshold = 0.5
 
 	G.Con = NewController(G)
 	G.Con.ShowGame()

@@ -67,9 +67,6 @@ func getRectFromVerts(verts []ebiten.Vertex) core.Rectangle {
 func (v *Verts) Draw(target *ebiten.Image) {
 	verts := ApplyGeomVerts(v.verts, v.Rect, v.Rot)
 
-	// Define triangle indices
-	indices := []uint16{0, 1, 2} // Indices of the three vertices
-
 	// Draw triangle
-	target.DrawTriangles(verts, indices, whiteImage, nil)
+	target.DrawTriangles(verts, v.indices, whiteImage, nil)
 }

@@ -16,4 +16,11 @@ var (
 		B: 140,
 		A: 255,
 	}
+
+	ColorLightRed = color.RGBA{
+		R: 255,
+		G: 80,
+		B: 80,
+		A: 255,
+	}
 )
