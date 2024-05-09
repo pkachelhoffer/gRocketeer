@@ -4,14 +4,15 @@ import (
 	"gRocketeer/core"
 	"gRocketeer/core/config"
 	"gRocketeer/core/entity"
+	"gRocketeer/game/types"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/jakecoffman/cp"
 	"log"
 )
 
 var (
-	ResWidth  = 320
-	ResHeight = 180
+	ResWidth  = 960
+	ResHeight = 540
 
 	ViewWidth  = 960
 	ViewHeight = 540
@@ -37,6 +38,7 @@ func (g *Game) Update() error {
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
+	screen.Fill(types.ColorSpace)
 	g.System.Draw(screen)
 }
 
@@ -64,7 +66,7 @@ func Run() {
 		Space:  cp.NewSpace(),
 	}
 
-	G.Space.SetGravity(cp.Vector{X: 0, Y: 5})
+	G.Space.SetGravity(cp.Vector{X: 0, Y: 20})
 	G.Space.SleepTimeThreshold = 0.5
 
 	G.Con = NewController(G)

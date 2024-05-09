@@ -11,7 +11,7 @@ type Sprite struct {
 	Rect Rectangle
 
 	Rot   float64
-	Scale float64
+	Scale Vec
 
 	ColorM colorm.ColorM
 
@@ -23,7 +23,7 @@ func NewSprite(img *ebiten.Image) *Sprite {
 	s := &Sprite{
 		Img:   img,
 		Rect:  NewRect(NewVec(0, 0), NewVec(float64(b.Dx()), float64(b.Dy()))),
-		Scale: 1,
+		Scale: NewVec(1, 1),
 	}
 
 	s.ColorM.Scale(1, 1, 1, 1)

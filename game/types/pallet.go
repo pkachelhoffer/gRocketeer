@@ -23,4 +23,18 @@ var (
 		B: 80,
 		A: 255,
 	}
+
+	ColorSpace = color.RGBA{
+		R: 22,
+		G: 0,
+		B: 42,
+		A: 255,
+	}
+
+	ColorWall = color.RGBA{
+		R: 234,
+		G: 228,
+		B: 204,
+		A: 255,
+	}
 )
