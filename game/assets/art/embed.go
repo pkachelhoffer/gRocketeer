@@ -7,4 +7,7 @@ import (
 var (
 	//go:embed ship.png
 	Ship []byte
+
+	//go:embed ShipHull01.png
+	ShipHull01 []byte
 )

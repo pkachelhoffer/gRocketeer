@@ -19,19 +19,11 @@ func NewController(g types.IGame) *Controller {
 }
 
 func (c *Controller) ShowGame() {
-	c.ship = entities.NewShip(c.g)
+	c.ship = entities.CreateShip(c.g, entities.ShipPlan1)
+
 	c.g.GetSys().Add("ship", c.ship)
 
-	w := entities.NewWall(c.g, core.NewRect(core.NewVec(c.g.Screen().RightFromCenter(), 25), core.NewVec(920, 20)), types.ColorWall)
-	c.g.GetSys().Add("wallTop", w)
-
-	w = entities.NewWall(c.g, core.NewRect(core.NewVec(c.g.Screen().RightFromCenter(), c.g.Screen().Y-25), core.NewVec(920, 20)), types.ColorWall)
-	c.g.GetSys().Add("wallBottom", w)
-
-	w = entities.NewWall(c.g, core.NewRect(core.NewVec(c.g.Screen().X-25, c.g.Screen().DownFromCenter()), core.NewVec(20, 500)), types.ColorWall)
-	c.g.GetSys().Add("wallRight", w)
-
-	w = entities.NewWall(c.g, core.NewRect(core.NewVec(25, c.g.Screen().DownFromCenter()), core.NewVec(20, 500)), types.ColorWall)
+	w := entities.NewWall(c.g, core.NewRect(core.NewVec(c.g.Screen().RightFromCenter(), c.g.Screen().Y-20), core.NewVec(100, 5)), types.ColorWall)
 	c.g.GetSys().Add("wallLeft", w)
 }
 

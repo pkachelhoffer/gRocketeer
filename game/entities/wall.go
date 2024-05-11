@@ -42,7 +42,7 @@ func NewWall(g types.IGame, rect core.Rectangle, col color.Color) *Wall {
 func (w *Wall) Init() {
 	b := cp.NewKinematicBody()
 	b.SetPosition(util.ToVec(w.sp.Rect.Pos))
-	s := cp.NewBox(b, w.sp.Rect.Bounds.X, w.sp.Rect.Bounds.Y, 0.5)
+	s := cp.NewBox(b, w.sp.Rect.Bounds.X, w.sp.Rect.Bounds.Y, 0)
 	s.SetElasticity(0.1)
 	s.SetFriction(0.1)
 	w.g.GetSpace().AddShape(s)

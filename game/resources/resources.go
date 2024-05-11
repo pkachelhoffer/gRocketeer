@@ -11,7 +11,8 @@ var (
 	ShaderTest   *ebiten.Shader
 	ShaderCircle *ebiten.Shader
 
-	ImgShip *ebiten.Image
+	ImgShip       *ebiten.Image
+	ImgShipHull01 *ebiten.Image
 )
 
 func init() {
@@ -19,4 +20,5 @@ func init() {
 	ShaderCircle = core.LoadShaderBytes(shaders.ShaderCircle)
 
 	ImgShip = core.LoadImageBytes(art.Ship)
+	ImgShipHull01 = core.LoadImageBytes(art.ShipHull01)
 }

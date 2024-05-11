@@ -11,8 +11,8 @@ import (
 )
 
 var (
-	ResWidth  = 960
-	ResHeight = 540
+	ResWidth  = 320
+	ResHeight = 180
 
 	ViewWidth  = 960
 	ViewHeight = 540
