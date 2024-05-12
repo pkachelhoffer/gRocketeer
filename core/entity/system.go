@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"gRocketeer/core/config"
 	"github.com/hajimehoshi/ebiten/v2"
+	"log"
 )
 
 type System struct {
@@ -84,4 +85,18 @@ func (s *System) Get(key string) (Entity, bool) {
 	}
 
 	return nil, false
+}
+
+func Get[T Entity](s *System, key string) T {
+	entity, ok := s.Get(key)
+	if !ok {
+		log.Fatal(fmt.Sprintf("failed getting %s", key))
+	}
+
+	tp, ok := entity.(T)
+	if !ok {
+		log.Fatal(fmt.Sprintf("incorrect type cast %s", key))
+	}
+
+	return tp
 }

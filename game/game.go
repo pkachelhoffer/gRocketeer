@@ -66,11 +66,12 @@ func Run() {
 		Space:  cp.NewSpace(),
 	}
 
-	G.Space.SetGravity(cp.Vector{X: 0, Y: 20})
+	G.Space.SetGravity(cp.Vector{X: 0, Y: 0})
 	G.Space.SleepTimeThreshold = 0.5
+	G.Space.SetDamping(0.6)
 
 	G.Con = NewController(G)
-	G.Con.ShowGame()
+	G.Con.LoadLevel()
 
 	if err := ebiten.RunGame(G); err != nil {
 		log.Fatal(err)

@@ -4,6 +4,7 @@ import (
 	"gRocketeer/core"
 	"gRocketeer/core/entity"
 	"gRocketeer/game/types"
+	"gRocketeer/game/util"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/jakecoffman/cp"
 )
@@ -50,14 +51,10 @@ func (s *Ship) SetBody(b *cp.Body) {
 	s.body = b
 }
 
-func (s *Ship) Thrust() {
-	s.body.ApplyForceAtLocalPoint(cp.Vector{X: 0, Y: -200}, cp.Vector{X: 0, Y: -10})
+func (s *Ship) Thrust(direction core.Vec) {
+	s.body.ApplyForceAtLocalPoint(cp.Vector{X: direction.X * 100, Y: direction.Y * 100}, cp.Vector{X: 0, Y: -10})
 }
 
-func (s *Ship) Turn(clockWise bool) {
-	if clockWise {
-		s.body.ApplyForceAtLocalPoint(cp.Vector{X: 0, Y: -50}, cp.Vector{X: -5, Y: 5})
-	} else {
-		s.body.ApplyForceAtLocalPoint(cp.Vector{X: 0, Y: -50}, cp.Vector{X: 5, Y: 5})
-	}
+func (s *Ship) SetPosition(pos core.Vec) {
+	s.body.SetPosition(util.ToVec(pos))
 }
