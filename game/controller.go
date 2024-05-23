@@ -7,8 +7,6 @@ import (
 
 type Controller struct {
 	g types.IGame
-
-	ship *entities.Ship
 }
 
 func NewController(g types.IGame) *Controller {

@@ -10,6 +10,13 @@ var (
 		A: 255,
 	}
 
+	ColorWhite = color.RGBA{
+		R: 255,
+		G: 255,
+		B: 255,
+		A: 255,
+	}
+
 	ColorGrey = color.RGBA{
 		R: 140,
 		G: 140,
